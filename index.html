@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta social seti -->
-    <meta property="og:url" content="">
+    <meta property="og:url" content="viktorian23.github.io">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Артем Исламов - верстка сайтов на HTML и CSS">
-    <meta property="og:image" content="">
-    <meta property="og:description" content="Закажите разработку сайта без посредников от 5 990 рублей">
+    <meta property="og:title" content="Виктор Коновалов - верстка сайтов на HTML и CSS">
+    <meta property="og:image" content="Разработка различных сайтов">
+    <meta property="og:description" content="Закажите разработку сайта без посредников">
     <meta property="og:site_name" content="Портфолио верстальщика">
-    <meta property="article:author" content="Артем Исламов">
+    <meta property="article:author" content="Виктор Коновалов">
     <!-- Title -->
     <title>Виктор Коновалов - Портфолио</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -26,7 +26,7 @@
     <![endif]-->
   </head>
   <body>
-    <section class="main">
+    <section class="main" id="eve">
         <div class="main-overlay"></div>
         <div class="wraper">
             <div class="main-header">
@@ -35,12 +35,12 @@
                 <p>Верстка на HTML и CSS<br> Разработка сайтов под ключ</p>
             </div>
         </div>
-        <a href="#" class="main-down"><i class="icon-down"></i></a>
+        <a href="#portfolio" class="main-down" ><i class="icon-down"></i></a>
     </section>
     
     <section class="portfolio">
         <div class="container">   
-        <h2>Портфолио</h2>
+        <h2 id="portfolio">Портфолио</h2>
         <div class="row">
             <div class="col-lg-4">
                 <div class="portfolio-block">
@@ -112,5 +112,23 @@
     			modal.find('.modal-body').load(work+'.html');
     		});
     	});
+    </script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+    $("#eve").on("click","a", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+ 
+        //забираем идентификатор блока с трибута href
+        var id  = $(this).attr('href'),
+ 
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+            top = $(id).offset().top;
+         
+        //анимируем переход на расстояние - top за 1500 мс
+        $('body,html').animate({scrollTop: top}, 1000);
+    });
+});
     </script>
 </html>
